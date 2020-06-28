@@ -1,3 +1,4 @@
+import 'package:eco_flutter/Screens/single_challange.dart';
 import 'package:eco_flutter/Screens/widget/commontext.dart';
 import 'package:flutter/material.dart';
 
@@ -79,19 +80,25 @@ class _ChallangeScreenState extends State<ChallangeScreen> {
   }
 
   Widget _challengeCard(String url) {
-    return Card(
-      child: Container(
-          decoration: BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.5),
-                spreadRadius: 5,
-                blurRadius: 7,
-                offset: Offset(0, 3), // changes position of shadow
-              ),
-            ],
-          ),
-          child: Image.asset(url)),
+    return InkWell(
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => SingleCHallange()));
+      },
+      child: Card(
+        child: Container(
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  spreadRadius: 5,
+                  blurRadius: 7,
+                  offset: Offset(0, 3), // changes position of shadow
+                ),
+              ],
+            ),
+            child: Image.asset(url)),
+      ),
     );
   }
 }

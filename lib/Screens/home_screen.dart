@@ -1,5 +1,7 @@
 import 'package:eco_flutter/Screens/widget/navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_signin_button/button_list.dart';
+import 'package:flutter_signin_button/button_view.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -18,27 +20,41 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           Align(
-              alignment: Alignment.bottomCenter,
-              child: Padding(
-                padding: EdgeInsets.only(bottom: 60),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(40),
-                  child: Container(
-                    width: MediaQuery.of(context).size.width - 80,
-                    height: 40,
-                    child: RaisedButton(
-                      color: Colors.white,
-                      onPressed: () {
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Navigation()));
-                      },
-                      child: Text("Lets gamble"),
-                    ),
+            alignment: Alignment.bottomCenter,
+            child: Container(
+                // height: 40,
+                child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(100),
+                  child: SignInButton(
+                    Buttons.Google,
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Navigation()));
+                    },
                   ),
                 ),
-              ))
+                SizedBox(height: 16),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(100),
+                  child: SignInButton(
+                    Buttons.Facebook,
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Navigation()));
+                    },
+                  ),
+                ),
+                SizedBox(height: 32),
+              ],
+            )),
+          ),
         ],
       ),
     );
