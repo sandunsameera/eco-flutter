@@ -1,9 +1,8 @@
 import 'package:eco_flutter/Screens/challenge_screen.dart';
-import 'package:eco_flutter/Screens/home_screen.dart';
 import 'package:eco_flutter/Screens/widget/commontext.dart';
 import 'package:eco_flutter/Screens/widget/leaderboard.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import '../profile_screen.dart';
 
 class Navigation extends StatefulWidget {
   @override
@@ -31,7 +30,7 @@ class _NavigationState extends State<Navigation> {
 
     switch (itemIndex) {
       case 0:
-        slogan = ChallangeScreen();
+        slogan = ProfileScreen();
         break;
       case 1:
         slogan = ChallangeScreen();
@@ -69,7 +68,10 @@ class _NavigationState extends State<Navigation> {
                   )
                 : SizedBox(height: 3),
             SizedBox(height: 12),
-            Icon(iconData,color: Colors.green,),
+            Icon(
+              iconData,
+              color: Colors.green,
+            ),
             SizedBox(height: 8),
             CommonText(
               title: field,

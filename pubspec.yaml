@@ -32,6 +32,10 @@ dependencies:
   social_media_buttons: ^0.1.2
   flutter_signin_button: ^1.0.0
   animated_text_kit: ^2.2.0
+  percent_indicator: ^2.1.5
+  image_picker: ^0.6.6+1
+  image_cropper: ^1.2.1
+
 
 dev_dependencies:
   flutter_test:

@@ -1,4 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:eco_flutter/Screens/post_screen.dart';
 import 'package:eco_flutter/Screens/widget/commontext.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,10 @@ class _AcceptScreenState extends State<AcceptScreen> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => PostScreen()));
+        },
       ),
       appBar: AppBar(
         actions: <Widget>[
@@ -35,8 +39,8 @@ class _AcceptScreenState extends State<AcceptScreen> {
         children: <Widget>[
           SizedBox(height: 8),
           _searchBar(),
-          _abc("assets/images/votechal.png", "Vote Now"),
-          _abc("assets/images/onechal.png", "Challange"),
+          _abc("assets/images/votechal.png", "Vote Now", Colors.green),
+          _abc("assets/images/onechal.png", "Challange", Color(0xff4cb5d5)),
         ],
       ),
     );
@@ -84,7 +88,7 @@ class _AcceptScreenState extends State<AcceptScreen> {
     );
   }
 
-  Widget _abc(String url, String text) {
+  Widget _abc(String url, String text, Color color) {
     return Column(
       children: <Widget>[
         Card(
@@ -128,7 +132,7 @@ class _AcceptScreenState extends State<AcceptScreen> {
               height: 40,
               width: 120,
               decoration: BoxDecoration(
-                  color: Colors.green, borderRadius: BorderRadius.circular(20)),
+                  color: color, borderRadius: BorderRadius.circular(20)),
               child: Center(
                 child: ScaleAnimatedTextKit(
                     onTap: () {
