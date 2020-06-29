@@ -10,7 +10,7 @@ class Navigation extends StatefulWidget {
 }
 
 class _NavigationState extends State<Navigation> {
-  int itemIndex = 0;
+  int itemIndex = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

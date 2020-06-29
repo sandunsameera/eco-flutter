@@ -71,7 +71,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   children: <Widget>[
                     SvgPicture.asset("assets/images/bag_svg.svg"),
                     CommonText(
-                      title: "15800 stars earned",
+                      title: "15800 earned",
                       left: 4,
                       right: 0,
                       top: 0,

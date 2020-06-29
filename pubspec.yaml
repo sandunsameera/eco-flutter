@@ -35,7 +35,10 @@ dependencies:
   percent_indicator: ^2.1.5
   image_picker: ^0.6.6+1
   image_cropper: ^1.2.1
-
+  calendar_strip: ^1.0.6
+  flutter_range_slider: ^1.4.0
+  toggle_switch: ^0.1.4
+  lite_rolling_switch: ^0.1.1
 
 dev_dependencies:
   flutter_test:
