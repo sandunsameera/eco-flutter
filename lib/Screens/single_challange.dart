@@ -4,6 +4,12 @@ import '../Screens/accept_challange.dart';
 class SingleCHallange extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    @override
+    void initState() {
+      print(DataHandle.selligndog.toString());
+      super.initState();
+    }
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
@@ -46,7 +52,10 @@ class SingleCHallange extends StatelessWidget {
                             style: TextStyle(color: Colors.white),
                           ),
                           onPressed: () {
-                            Navigator.push(context,MaterialPageRoute(builder: (context)=>AcceptScreen()));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => AcceptScreen()));
                           },
                         ),
                         height: 40,

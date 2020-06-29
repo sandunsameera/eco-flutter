@@ -8,6 +8,24 @@ class ChallangeScreen extends StatefulWidget {
 }
 
 class _ChallangeScreenState extends State<ChallangeScreen> {
+  QuerySnapshot sellingDogs;
+  String email;
+  String uid;
+  String username;
+
+  @override
+  void initState() {
+    firestoreServices.Challanges().then((results) {
+      setState(() {
+        sellingDogs = results;
+      });
+    });
+
+    super.initState();
+    this.getUserId();
+    this.getUserEail();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,17 +105,17 @@ class _ChallangeScreenState extends State<ChallangeScreen> {
       },
       child: Card(
         child: Container(
-            decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
-                  spreadRadius: 5,
-                  blurRadius: 7,
-                  offset: Offset(0, 3), // changes position of shadow
-                ),
-              ],
-            ),
-            child: Image.asset(url)),
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 5,
+                blurRadius: 7,
+                offset: Offset(0, 3), // changes position of shadow
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

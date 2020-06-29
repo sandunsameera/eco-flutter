@@ -13,6 +13,45 @@ class PostScreen extends StatefulWidget {
 
 
 class _PostScreenState extends State<PostScreen> {
+
+   File _image;
+
+  getImageFromGallery() async {
+    File image = await ImagePicker.pickImage(source: ImageSource.gallery);
+    if (image != null) {
+      setState(() {
+        _image = image;
+      });
+    }
+  }
+
+
+  Future uploadPic(BuildContext context, Map data) async {
+    AuthResult user = await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: 'sandun@gmail.com', password: "sandun");
+    StorageReference firebaseStorageRef =
+        FirebaseStorage.instance.ref().child(DateTime.now().toString());
+    StorageUploadTask uploadTask = firebaseStorageRef.putFile(_image);
+    uploadedFileURL = await (await uploadTask.onComplete).ref.getDownloadURL();
+    print("before" + uploadedFileURL);
+    firestoreServices.addtosell(data).then((value) {
+      print("Data saved");
+    }).catchError((e) {
+      print(e);
+    });
+    print("after" + uploadedFileURL);
+    Navigator.pop(context);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    this.getUserId();
+  }
+
+
+
+
   DateTime startDate = DateTime.now().subtract(Duration(days: 2));
   DateTime endDate = DateTime.now().add(Duration(days: 2));
   DateTime selectedDate = DateTime.now().subtract(Duration(days: 2));
